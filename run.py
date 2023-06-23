@@ -1,6 +1,6 @@
 def build_board(size):
-    return [['~' for count in range(size)] for count in range(size)]
-build_board(8)
+    return [['~'] * 8 for x in range(8)]
+
 
 def print_board(board):
     for b in board:
