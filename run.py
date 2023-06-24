@@ -1,4 +1,6 @@
-
+"""
+Builds basic board layout.
+"""
 def build_board(size):
     return [['~'] * 8 for x in range(8)]
 
@@ -12,16 +14,19 @@ def npc_board(board):
         print(*b)
 
 board = build_board(4)
-print("Your board")
-player_board(board)
-print("\nOpponents board")
-npc_board(board)
+
 
 
 
 def run_game():
-    print("WELCOME TO BATTLESHIP")
-    print("An enemy is spotted on the horizon")
-    print("Try to sink all their ships before they sink your ships")
-    
+    print("\nWELCOME TO BATTLESHIP")
+    print("\nAn enemy fleet is spotted on the horizon.")
+    print("Try to sink all their ships before they sink your ships.\n")
+
+
 run_game()
+print("Your board")
+player_board(board)
+print("\nOpponents board")
+npc_board(board)
+print(create_ships)
