@@ -22,7 +22,7 @@ class Battleship:
         some_str = ''
         for i in range (len(ls)):
             some_str+=" ".join(ls[i])+'\n'
-        print(some_str)
+        return(some_str)
 
     
     def display_boards(self):
