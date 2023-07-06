@@ -13,8 +13,10 @@ class Battleship:
     def start(self):
         self.user_board = self.create_boards()
         self.computer_board = self.create_boards()
+        self.display_boards()
 
     def create_boards(self):
+        # Board layout 
         ls = [['~'for x in range(8)] for y in range (8)]
         
         some_str = ''
@@ -27,7 +29,9 @@ class Battleship:
         print("\nWELCOME TO BATTLESHIP")
         print("\nAn enemy fleet is spotted on the horizon.")
         print("Try to sink all their ships before they sink your ships.\n")
+        print("Your board:")
         print(self.user_board)
+        print("Computer board:")
         print(self.computer_board)
 
 
