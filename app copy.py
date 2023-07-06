@@ -28,9 +28,7 @@ class Battleship:
         for i in range (len(ls)):
             some_str+=" ".join(ls[i])+'\n'
         print(some_str)
-        
-      
-            
+                 
 
     def place_ships(self, board):
         for ship in range(6):
@@ -41,13 +39,11 @@ class Battleship:
 
         return board
 
-    def display_boards(self):
+   def display_boards(self):
         print("\nWELCOME TO BATTLESHIP")
         print("\nAn enemy fleet is spotted on the horizon.")
         print("Try to sink all their ships before they sink your ships.\n")
-        print("Your board")
         print(self.user_board)
-        print("\nOpponents board")
         print(self.computer_board)
         
 
