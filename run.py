@@ -9,16 +9,16 @@ class Battleship:
         self.computer_board = []
         self.user_hits = 0
         self.computer_hits = 0
+        self.ships = []
 
-
-    def start(self):
+    def start(self, num_ships):
 
         #Function to create both boards and place ships.
 
         self.user_board = self.create_boards()
         self.computer_board = self.create_boards()
         self.display_boards()
-
+        self.num_ships = num_ships
         self.user_board  = self.place_ships(self.user_board)
         self.computer_board = self.place_ships(self.computer_board)
 
@@ -34,6 +34,9 @@ class Battleship:
         return(some_str)
 
     def place_ships(self, board):
+
+
+        """
         for ship in range(6):
             ship_r, ship_cl=randint(0,7), randint(0,7)
         while board[ship_r][ship_cl] =='@':
@@ -41,7 +44,9 @@ class Battleship:
         board[ship_r][ship_cl] = '@'
 
         return board
-    
+        """
+
+
     def display_boards(self):
         print("\nWELCOME TO BATTLESHIP")
         print("\nAn enemy fleet is spotted on the horizon.")
