@@ -46,8 +46,16 @@ class Battleship:
             if board[x][y] == '~':
                 board[x][y] = '@'
                 num_ships += 1
-        
 
+    def place_ships(self, computer_board):
+        num_ships = 0
+        while num_ships < self.ships:
+            x = random.randint(0, 7)
+            y = random.randint(0, 7)
+            if board[x][y] == '~':
+                board[x][y] = '@'
+                num_ships += 1
+        
    
     def guess_place(self, computer_board):
         x = int(input("Write a row number 0-7:\n"))
@@ -58,7 +66,6 @@ class Battleship:
         else:
             print("Miss!")
     
-  
 
     def display_boards(self):
         print("\nWELCOME TO BATTLESHIP")
