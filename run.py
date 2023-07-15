@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 class Battleship: 
     
@@ -9,7 +9,7 @@ class Battleship:
         self.computer_board = []
         self.user_hits = 0
         self.computer_hits = 0
-        self.ships = 5
+        
           
 
     def start(self):
@@ -31,10 +31,10 @@ class Battleship:
                 
         num = 8
 
-        ls = [['~'for x in range(num)] for y in range (num)]
+        board = [['~'for x in range(num)] for y in range (num)]
         some_str = ''
-        for i in range (len(ls)):
-            some_str+=" ".join(ls[i])+'\n'
+        for i in range (len(board)):
+            some_str+=" ".join(board[i])+'\n'
         return(some_str)
 
     
@@ -44,19 +44,21 @@ class Battleship:
             while num_ships < ships:
                 x = random.randint(0, 7)
                 y = random.randint(0, 7)
-                if board[x][y] == '~':
-                    board[x][y] = '@'
+                if self.board[x][y] == '~':
+                    self.board[x][y] = '@'
                     num_ships += 1
+                
         
    
-    def guess_place(self, computer_board):
-        x = int(input("Write a row number 0-7:\n"))
-        y = int(input("Write a column number 0-7:\n"))
+    def guess_place(self, board):
+        int(input("Write a row number 0-7:\n"))
+        int(input("Write a column number 0-7:\n"))
         if board[x][y] == '@':
             print("Hit!")
             self.user_hits += 1
         else:
             print("Miss!")
+        
     
 
     def display_boards(self):
@@ -67,7 +69,7 @@ class Battleship:
         print(self.user_board)
         print("Computer board:")
         print(self.computer_board)
-        print(self.place_ships)
+        print(self.guess_place)
 
 
         """
