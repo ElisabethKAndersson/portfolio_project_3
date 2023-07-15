@@ -19,8 +19,9 @@ class Battleship:
         self.user_board = self.create_boards()
         self.computer_board = self.create_boards()
         self.display_boards()
-        self.user_board  = self.place_ships(self.user_board)
-        self.computer_board = self.place_ships(self.computer_board)
+        self.user_board  = self.place_ships()
+        self.computer_board = self.place_ships()
+
         #self.guess_place = []
 
 
@@ -37,24 +38,15 @@ class Battleship:
         return(some_str)
 
     
-    def place_ships(self, user_board):
-
-        num_ships = 0
-        while num_ships < self.ships:
-            x = random.randint(0, 7)
-            y = random.randint(0, 7)
-            if board[x][y] == '~':
-                board[x][y] = '@'
-                num_ships += 1
-
-    def place_ships(self, computer_board):
-        num_ships = 0
-        while num_ships < self.ships:
-            x = random.randint(0, 7)
-            y = random.randint(0, 7)
-            if board[x][y] == '~':
-                board[x][y] = '@'
-                num_ships += 1
+    def place_ships(self):
+        for ships in range(6):
+            num_ships = 0
+            while num_ships < ships:
+                x = random.randint(0, 7)
+                y = random.randint(0, 7)
+                if board[x][y] == '~':
+                    board[x][y] = '@'
+                    num_ships += 1
         
    
     def guess_place(self, computer_board):
@@ -75,11 +67,15 @@ class Battleship:
         print(self.user_board)
         print("Computer board:")
         print(self.computer_board)
+        print(self.place_ships)
 
+
+        """
         self.place_ships(self.computer_board)
         self.place_ships(self.user_board)
         self.guess_place(self.computer_board)
-        
+        """
+
 battleship = Battleship()
 # start the game
 battleship.start()
