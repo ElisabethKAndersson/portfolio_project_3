@@ -32,8 +32,12 @@ def create_ships(board):
             ship_row, ship_col = randint(0, 7), randint(0, 7)
         board[ship_row][ship_col] = 'X'
 
+
+
 create_ships(Hidden_Pattern)
-print(create_board(Hidden_Pattern))
+#print(create_board(Hidden_Pattern))
+
+
 
 print("\nWELCOME TO BATTLESHIP")
 print("\nAn enemy fleet is spotted on the horizon.")
