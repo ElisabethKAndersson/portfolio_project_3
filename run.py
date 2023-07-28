@@ -55,22 +55,30 @@ def count_hit_ships(board):
                 count += 1
     return count
 
-def start game()
 
-start game()
+def start_game():
+    # Text to start the game
+    print("\nWELCOME TO BATTLESHIP")
+    print("\nAn enemy fleet is spotted on the horizon.")
+    print("You have 15 missiles at your disposal.")
+    print("Try to sink all their ships before it's too late.\n")
+
+
+
+start_game()
 # Defines what board the ships should be placed on
 create_ships(Hidden_Pattern)
 
 #print(create_board(Hidden_Pattern))
 
-
+"""
 # Text to start the game
 print("\nWELCOME TO BATTLESHIP")
 print("\nAn enemy fleet is spotted on the horizon.")
 print("You have 15 missiles at your disposal.")
 print("Try to sink all their ships before it's too late.\n")
 time.sleep(5)
-
+"""
 # Add press button function to begin here???
 
 turns = 15
