@@ -76,7 +76,7 @@ create_ships(Hidden_Pattern)
 
 # print(create_board(Hidden_Pattern))
 
-turns = 18
+turns = 3
 while turns > 0:
     # Print the board
     print("\nCan you guess where on the board the 5 hidden ships are?")
@@ -102,4 +102,10 @@ while turns > 0:
     if turns == 0:
         print('\nGame Over\n')
         break
+
+start_over = input("\nDo you want to play again? Y / N\n")
+if start_over == 'Y':
+    start_game()
+else:
+
 
