@@ -67,41 +67,6 @@ def start_game():
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
 
-    # print(create_board(Hidden_Pattern))
-
-    turns = 3
-    while turns > 0:
-        # Print the board
-        print("\nCan you guess where on the board the 5 hidden ships are?")
-        print(create_board(Guess_Pattern))
-
-        # Enables the player make guesses.
-        
-        row, column = guess_ship_location()
-        if Guess_Pattern[row][column] == 'o':
-            print('\nYou have already fired a shot there, try somewhere else\n')
-        elif Hidden_Pattern[row][column] == '*':
-            print('\nYAY! YOU HIT ONE SHIP!\n')
-            Guess_Pattern[row][column] = '*'
-            turns -= 1
-        else:
-            print('\nSorry,You missed\n')
-            Guess_Pattern[row][column] = 'o'
-            turns -= 1
-        if count_hit_ships(Guess_Pattern) == 5:
-            print("\nCONGRATULATIONS! YOU MANAGED TO DEFEAT THE ENEMY.\n")
-            break
-        print('You have ' + str(turns) + ' turns remaining ')
-        if turns == 0:
-            print('\nGame Over\n')
-            break
-
-    start_over = input("\nDo you want to play again? Y / N\n")
-    if start_over == 'Y':
-        start_game()
-    else:
-        print('\nThank you for playing.\n')
-
 # Add press button function to begin here???
 
 start_game()
@@ -109,7 +74,40 @@ start_game()
 
 
 
+# print(create_board(Hidden_Pattern))
 
+turns = 3
+while turns > 0:
+    # Print the board
+    print("\nCan you guess where on the board the 5 hidden ships are?")
+    print(create_board(Guess_Pattern))
+
+    # Enables the player make guesses.
+    
+    row, column = guess_ship_location()
+    if Guess_Pattern[row][column] == 'o':
+        print('\nYou have already fired a shot there, try somewhere else\n')
+    elif Hidden_Pattern[row][column] == '*':
+        print('\nYAY! YOU HIT ONE SHIP!\n')
+        Guess_Pattern[row][column] = '*'
+        turns -= 1
+    else:
+        print('\nSorry,You missed\n')
+        Guess_Pattern[row][column] = 'o'
+        turns -= 1
+    if count_hit_ships(Guess_Pattern) == 5:
+        print("\nCONGRATULATIONS! YOU MANAGED TO DEFEAT THE ENEMY.\n")
+        break
+    print('You have ' + str(turns) + ' turns remaining ')
+    if turns == 0:
+        print('\nGame Over\n')
+        break
+
+start_over = input("\nDo you want to play again? Y / N\n")
+if start_over == 'Y':
+    start_game()
+else:
+    print('Thank you for playing')
     
 
 
