@@ -57,12 +57,14 @@ def count_hit_ships(board):
     return count
 
 
+# Function that runs the game
 def start_game():
     # Text when starting the game.
     print("\nWELCOME TO BATTLESHIP")
     print("\nAn enemy fleet is spotted on the horizon.")
     print("You have 18 missiles at your disposal.")
     print("Try to sink all their ships before it's too late.\n")
+    # Add press button function to begin here??
 
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
@@ -76,7 +78,6 @@ def start_game():
         print(create_board(Guess_Pattern))
 
         # Enables the player make guesses.
-        
         row, column = guess_ship_location()
         if Guess_Pattern[row][column] == 'o':
             print('\nYou have already fired a shot there, try somewhere else\n')
@@ -96,13 +97,14 @@ def start_game():
             print('\nGame Over\n')
             break
 
+    # Gives option to start the game from the beginning.
     start_over = input("\nDo you want to play again? Y / N\n")
     if start_over == 'Y':
         start_game()
     else:
         print('\nThank you for playing.\n')
 
-# Add press button function to begin here???
+?
 
 start_game()
 
