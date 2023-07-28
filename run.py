@@ -23,15 +23,19 @@ def create_board(board):
 
 # Function for guessing where on the board the hidden ships are
 def guess_ship_location():
-    row = input("Please enter a row number 0-7:")
-    while row not in "01234567":
-        print('That is not a valid row number')
-        row = input("Please enter a row number 0-7:")
-    column = input("Write a column number 0-7:")
-    while column not in "01234567":
-        print('That is not a valid column number')
-        column = input("Write a column number 0-7:")
-    return int(row), int(column)
+    try:
+        row = int(input("Please enter a row number 0-7:"))
+        while row not in range(8):
+            print('That is not a valid row number')
+            row = int(input("Please enter a row number 0-7:"))
+        column = int(input("Write a column number 0-7:"))
+        while column not in range(8):
+            print('That is not a valid column number')
+            column = int(input("Write a column number 0-7:"))
+        return int(row), int(column)
+    except ValueError:
+        print("Invalid input. Please enter a single digit.")
+        return guess_ship_location()
 
 
 # Function that randomly places ships on a board
@@ -51,11 +55,13 @@ def count_hit_ships(board):
                 count += 1
     return count
 
+def start game()
 
+start game()
 # Defines what board the ships should be placed on
 create_ships(Hidden_Pattern)
 
-# print(create_board(Hidden_Pattern))
+#print(create_board(Hidden_Pattern))
 
 
 # Text to start the game
@@ -65,14 +71,12 @@ print("You have 15 missiles at your disposal.")
 print("Try to sink all their ships before it's too late.\n")
 time.sleep(5)
 
-
 # Add press button function to begin here???
-
 
 turns = 15
 while turns > 0:
     # Print the board
-    print("\nCan you guess where on the board the 6 hidden ships are?")
+    print("\nCan you guess where on the board the 5 hidden ships are?")
     print(create_board(Guess_Pattern))
 
     # Enables the player make guesses.
@@ -93,5 +97,6 @@ while turns > 0:
         break
     print('You have ' + str(turns) + ' turns remaining ')
     if turns == 0:
-        print('Game Over ')
+        print('\nGame Over\n')
         break
+
