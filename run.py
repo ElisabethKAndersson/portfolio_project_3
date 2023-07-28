@@ -29,9 +29,9 @@ def guess_ship_location():
 # Function that randomly places ships on a board
 def create_ships(board):
     for ship in range(5):
-        ship_row, ship_col = randint(0, 6), randint(0, 6)
+        ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
         while board[ship_row][ship_col] == '*':
-            ship_row, ship_col = randint(0, 6), randint(0, 6)
+            ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
         board[ship_row][ship_col] = '*'
 
 
