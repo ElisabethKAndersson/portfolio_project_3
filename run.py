@@ -66,19 +66,15 @@ def start_game():
 
 
 start_game()
+
+
+
 # Defines what board the ships should be placed on
 create_ships(Hidden_Pattern)
 
 #print(create_board(Hidden_Pattern))
 
-"""
-# Text to start the game
-print("\nWELCOME TO BATTLESHIP")
-print("\nAn enemy fleet is spotted on the horizon.")
-print("You have 15 missiles at your disposal.")
-print("Try to sink all their ships before it's too late.\n")
-time.sleep(5)
-"""
+
 # Add press button function to begin here???
 
 turns = 15
@@ -91,13 +87,13 @@ while turns > 0:
     
     row, column = guess_ship_location()
     if Guess_Pattern[row][column] == 'o':
-        print('You have already fired a shot there, try somewhere else\n')
+        print('\nYou have already fired a shot there, try somewhere else\n')
     elif Hidden_Pattern[row][column] == '*':
-        print('YAY! YOU HIT ONE SHIP!\n')
+        print('\nYAY! YOU HIT ONE SHIP!\n')
         Guess_Pattern[row][column] = '*'
         turns -= 1
     else:
-        print('Sorry,You missed\n')
+        print('\nSorry,You missed\n')
         Guess_Pattern[row][column] = 'o'
         turns -= 1
     if count_hit_ships(Guess_Pattern) == 5:
