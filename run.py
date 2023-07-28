@@ -5,20 +5,20 @@ Import time module to create delays.
 from random import randint
 import time
 
-num = 8
+num = 7
 
 
 # Function for guessing where on the board the hidden ships are
 def guess_ship_location():
     try:
-        row = int(input("Please enter a row number 0-7:"))
-        while row not in range(8):
+        row = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
+        while row not in range(num):
             print('That is not a valid row number')
-            row = int(input("Please enter a row number 0-7:"))
-        column = int(input("Write a column number 0-7:"))
-        while column not in range(8):
-            print('That is not a valid column number')
-            column = int(input("Write a column number 0-7:"))
+            row = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
+        column = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
+        while column not in range(num):
+            print('Please enter a column number 0-' + str(num - 1) + ':')
+            column = int(input('Please enter a column number 0-' + str(num - 1) + ':'))
         return int(row), int(column)
     # If something that isn't an integer is inserted from the user.
     except ValueError:
@@ -29,9 +29,9 @@ def guess_ship_location():
 # Function that randomly places ships on a board
 def create_ships(board):
     for ship in range(5):
-        ship_row, ship_col = randint(0, 7), randint(0, 7)
+        ship_row, ship_col = randint(0, 6), randint(0, 6)
         while board[ship_row][ship_col] == '*':
-            ship_row, ship_col = randint(0, 7), randint(0, 7)
+            ship_row, ship_col = randint(0, 6), randint(0, 6)
         board[ship_row][ship_col] = '*'
 
 
@@ -60,6 +60,10 @@ def start_game():
             space += " ".join(board[i])+'\n'
         return (space)
 
+    # Places the ships on the hidden board
+    create_ships(Hidden_Pattern)
+    print(create_board(Hidden_Pattern))
+
 
     # Text when starting the game.
     print("\nWELCOME TO BATTLESHIP")
@@ -69,10 +73,6 @@ def start_game():
     time.sleep(2)
     input("\nPress enter to start the game\n")
 
-    # Places the ships on the hidden board
-    create_ships(Hidden_Pattern)
-
-    # print(create_board(Hidden_Pattern))
 
     turns = 18
     while turns > 0:
