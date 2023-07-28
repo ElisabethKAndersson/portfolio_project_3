@@ -33,6 +33,7 @@ def guess_ship_location():
             print('That is not a valid column number')
             column = int(input("Write a column number 0-7:"))
         return int(row), int(column)
+    # If something that isn't an integer is inserted from the user.
     except ValueError:
         print("Invalid input. Please enter a single digit.")
         return guess_ship_location()
@@ -57,27 +58,25 @@ def count_hit_ships(board):
 
 
 def start_game():
-    # Text to start the game
+    # Text when starting the game.
     print("\nWELCOME TO BATTLESHIP")
     print("\nAn enemy fleet is spotted on the horizon.")
-    print("You have 15 missiles at your disposal.")
+    print("You have 18 missiles at your disposal.")
     print("Try to sink all their ships before it's too late.\n")
 
+# Add press button function to begin here???
 
 
 start_game()
 
 
 
-# Defines what board the ships should be placed on
+# Places the ships on the hidden board
 create_ships(Hidden_Pattern)
 
-#print(create_board(Hidden_Pattern))
+# print(create_board(Hidden_Pattern))
 
-
-# Add press button function to begin here???
-
-turns = 15
+turns = 18
 while turns > 0:
     # Print the board
     print("\nCan you guess where on the board the 5 hidden ships are?")
