@@ -4,7 +4,7 @@ Import time module to create delays.
 """
 from random import randint
 import time
-
+"""
 num = 8
 
 # Hidden board for random ship placement.
@@ -19,7 +19,7 @@ def create_board(board):
     for i in range(len(board)):
         space += " ".join(board[i])+'\n'
     return (space)
-
+"""
 
 # Function for guessing where on the board the hidden ships are
 def guess_ship_location():
@@ -59,6 +59,24 @@ def count_hit_ships(board):
 
 # Function that runs the game
 def start_game():
+
+    num = 8
+
+    # Hidden board for random ship placement.
+    Hidden_Pattern = [['~'for x in range(num)] for y in range(num)]
+    # Guess board that shows guessses.
+    Guess_Pattern = [['~'for x in range(num)] for y in range(num)]
+
+
+    # Creates a board grid layout with spaces in between.
+    def create_board(board):
+        space = ''
+        for i in range(len(board)):
+            space += " ".join(board[i])+'\n'
+        return (space)
+
+
+
     # Text when starting the game.
     print("\nWELCOME TO BATTLESHIP")
     print("\nAn enemy fleet is spotted on the horizon.")
@@ -106,3 +124,4 @@ def start_game():
 
 
 start_game()
+
