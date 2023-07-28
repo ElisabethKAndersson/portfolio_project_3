@@ -64,7 +64,7 @@ def start_game():
     print("\nAn enemy fleet is spotted on the horizon.")
     print("You have 18 missiles at your disposal.")
     print("Try to sink all their ships before it's too late.\n")
-    # Add press button function to begin here??
+    input("\nPress enter to start the game\n")
 
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
@@ -104,14 +104,5 @@ def start_game():
     else:
         print('\nThank you for playing.\n')
 
-?
 
 start_game()
-
-
-
-
-
-    
-
-
