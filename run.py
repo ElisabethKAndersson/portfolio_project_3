@@ -5,6 +5,8 @@ Import time module to create delays.
 from random import randint
 import time
 
+num = 8
+
 
 # Function for guessing where on the board the hidden ships are
 def guess_ship_location():
@@ -44,9 +46,7 @@ def count_hit_ships(board):
 
 # Function that runs the game
 def start_game():
-
-    num = 8
-
+ 
     # Hidden board for random ship placement.
     Hidden_Pattern = [['~'for x in range(num)] for y in range(num)]
     # Guess board that shows guessses.
@@ -66,6 +66,7 @@ def start_game():
     print("\nAn enemy fleet is spotted on the horizon.")
     print("You have 18 missiles at your disposal.")
     print("Try to sink all their ships before it's too late.\n")
+    time.sleep(2)
     input("\nPress enter to start the game\n")
 
     # Places the ships on the hidden board
@@ -83,19 +84,23 @@ def start_game():
         row, column = guess_ship_location()
         if Guess_Pattern[row][column] == 'o':
             print('\nYou have already fired a shot there, try somewhere else\n')
+            time.sleep(2)
         elif Hidden_Pattern[row][column] == '*':
             print('\nYAY! YOU HIT ONE SHIP!\n')
             Guess_Pattern[row][column] = '*'
             turns -= 1
+            time.sleep(2)
         else:
-            print('\nSorry,You missed\n')
+            print('\nMiss!\n')
             Guess_Pattern[row][column] = 'o'
             turns -= 1
+            time.sleep(2)
         if count_hit_ships(Guess_Pattern) == 5:
             print("\nCONGRATULATIONS! YOU MANAGED TO DEFEAT THE ENEMY.\n")
             break
-        print('you have ' + str(count_hit_ships(Guess_Pattern)) + 'hits')
+        print('you have ' + str(count_hit_ships(Guess_Pattern)) + ' hits')
         print('You have ' + str(turns) + ' turns remaining ')
+        time.sleep(2)
         if turns == 0:
             print('\nGame Over\n')
             break
