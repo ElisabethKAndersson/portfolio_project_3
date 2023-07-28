@@ -64,17 +64,18 @@ def start_game():
     create_ships(Hidden_Pattern)
     print(create_board(Hidden_Pattern))
 
+    turns = 18
 
     # Text when starting the game.
     print("\nWELCOME TO BATTLESHIP")
     print("\nAn enemy fleet is spotted on the horizon.")
-    print("You have 18 missiles at your disposal.")
+    print("You have " + str(turns) + " missiles at your disposal.")
     print("Try to sink all their ships before it's too late.\n")
     time.sleep(2)
     input("\nPress enter to start the game\n")
 
 
-    turns = 18
+    
     while turns > 0:
         # Print the board
         print("\nCan you guess where on the board the 5 hidden ships are?")
