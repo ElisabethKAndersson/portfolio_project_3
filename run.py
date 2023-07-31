@@ -4,52 +4,66 @@ Import time module to create delays.
 """
 from random import randint
 import time
+import os
 
-num = int(input('number of rows\n'))
-ships = 5
+print("WELCOME TO BATTLESHIP\n")
+name = input('What is your name?\n')
+print('\nThank God you are here Captain ' + name +'!')
+print("\nAn enemy fleet is spotted on the horizon.")
+print("We have to sink all their ships before it's too late!\n")
+input('Press enter to start')
+os.system('clear')
 
-# Function for guessing where on the board the hidden ships are
-def guess_ship_location():
+
+# Function that runs the game from the beginning.
+def start_game():
+    ships = 5
+
     try:
-        row = int(input('Please enter a row number 0-' + str(num - 1)))
-        while row not in range(num):
-            print('That is not a valid row number')
-            row = int(input('Please enter a number 0-' + str(num - 1)))
-        column = int(input('Please enter a row number 0-' + str(num - 1)))
-        while column not in range(num):
-            print('That is not a valid column number')
-            column = int(input('Please enter a number 0-' + str(num - 1)))
-        return int(row), int(column)
-    # If something that isn't an integer is inserted from the user.
+        num = int(input('How many rows/columns do you want on the board (4-8)?\n'))
+        while num not in range(4, 9):
+            print('You have to write a number between 4-8')
+            num = int(input('How many rows/columns do you want on the board (4-8)?\n'))
     except ValueError:
         print("Invalid input. Please enter a single digit.")
-        return guess_ship_location()
-
-
-# Function that randomly places ships on a board
-def create_ships(board):
-    for ship in range(ships):
-        ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
-        while board[ship_row][ship_col] == '*':
-            ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
-        board[ship_row][ship_col] = '*'
-
-
-def count_hit_ships(board):
-    count = 0
-    for row in board:
-        for column in row:
-            if column == '*':
-                count += 1
-    return count
-
-
-# Function that runs the game
-def start_game():
-
+        return(start_game())
 
     
 
+    # Function for guessing where on the board the hidden ships are
+    def guess_ship_location():
+        try:
+            row = int(input('Please enter a row number 0-' + str(num - 1)))
+            while row not in range(num):
+                print('That is not a valid row number')
+                row = int(input('Please enter a number 0-' + str(num - 1)))
+            column = int(input('Please enter a row number 0-' + str(num - 1)))
+            while column not in range(num):
+                print('That is not a valid column number')
+                column = int(input('Please enter a number 0-' + str(num - 1)))
+            return int(row), int(column)
+        # If something that isn't an integer is inserted from the user.
+        except ValueError:
+            print("Invalid input. Please enter a single digit.")
+            return guess_ship_location()
+
+
+    # Function that randomly places ships on a board
+    def create_ships(board):
+        for ship in range(ships):
+            ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
+            while board[ship_row][ship_col] == '*':
+                ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
+            board[ship_row][ship_col] = '*'
+
+
+    def count_hit_ships(board):
+        count = 0
+        for row in board:
+            for column in row:
+                if column == '*':
+                    count += 1
+        return count
 
     # Board resets at the start of the game.
     # Hidden board for random ship placement.
@@ -72,12 +86,12 @@ def start_game():
     turns = 18
 
     # Text when starting the game.
-    print("\nWELCOME TO BATTLESHIP")
+    
     print("\nAn enemy fleet is spotted on the horizon.")
     print("You have " + str(turns) + " missiles at your disposal.")
-    print("Try to sink all their ships before it's too late.\n")
+    
     time.sleep(2)
-    input("\nPress enter to start the game\n")
+    
 
     while turns > 0:
         # Print the board
