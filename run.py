@@ -7,7 +7,7 @@ from random import randint
 import time
 import os
 
-#Welcome text that only appears first playthrough.
+# Welcome text that only appears first playthrough.
 print("WELCOME TO BATTLESHIP\n")
 name = input('What is your name?\n')
 print('\nThank God you are here Captain ' + name + '!')
@@ -24,13 +24,13 @@ def start_game():
         num = int(input('Add number of rows/columns (4-8)?\n'))
         while num not in range(4, 9):
             print('That is not a valid number.')
-            num = int(input('Add number of rows/columns (4-8)?\n')) 
+            num = int(input('Add number of rows/columns (4-8)?\n'))
         # Makes the player choose number of ships to hit.
-        ships = int(input('Add number of ships to hit (3-6).\n')) 
+        ships = int(input('Add number of ships to hit (3-6).\n'))
         while ships not in range(3, 7):
             print('That is not a valid number.')
             ships = int(input('Add number of ships to hit (3-6).\n'))
-        #Makes the player choose number of turns.
+        # Makes the player choose number of turns.
         turns = int(input('Add number of turns (10-20).\n'))
         while turns not in range(10, 21):
             print('That is not a valid number.')
@@ -61,7 +61,8 @@ def start_game():
         for ship in range(ships):
             ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
             while board[ship_row][ship_col] == '*':
-                ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
+                ship_row, ship_col = randint(0, int(num-1)),
+                randint(0, int(num-1))
             board[ship_row][ship_col] = '*'
 
     # Counts number of hits
@@ -79,7 +80,6 @@ def start_game():
     # Guess board that shows guessses.
     Guess_Pattern = [['~'for x in range(num)] for y in range(num)]
 
-
     # Creates a board grid layout with spaces in between.
     def create_board(board):
         space = ''
@@ -89,17 +89,15 @@ def start_game():
 
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
-    # print(create_board(Hidden_Pattern))
-
-    
+    print(create_board(Hidden_Pattern))
     # Text when starting the game.
     print("You have " + str(turns) + " missiles at your disposal.")
     print('Where should we aim Captain ' + name + '?\n')
     time.sleep(2)
-    
     while turns > 0:
         # Print the visable board that shows guesses.
-        print('\nCan you guess where on the board the ' + str(ships) + ' hidden ships are?')
+        print('\nCan you guess where on the board')
+        print('the ' + str(ships) + ' hidden ships are?')
         print(create_board(Guess_Pattern))
 
         # Enables the player make guesses.
@@ -121,7 +119,7 @@ def start_game():
         if count_hit_ships(Guess_Pattern) == 4:
             print("\nCONGRATULATIONS! YOU MANAGED TO DEFEAT THE ENEMY.\n")
             break
-        # Text that informs the player of number of number of turns left and hits made.
+        # Informs the player of number of turns left and hits made.
         print('you have ' + str(count_hit_ships(Guess_Pattern)) + ' hits')
         print('You have ' + str(turns) + ' turns remaining ')
         time.sleep(2)
