@@ -46,7 +46,7 @@ def start_game():
             while row not in range(num):
                 print('That is not a valid row number')
                 row = int(input('Enter a number 0-' + str(num - 1)))
-            column = int(input('Enter a row number 0-' + str(num - 1) + '\n'))
+            column = int(input('Enter a column number 0-' + str(num - 1) + '\n'))
             while column not in range(num):
                 print('That is not a valid column number')
                 column = int(input('Enter a number 0-' + str(num - 1) + '\n'))
@@ -61,8 +61,7 @@ def start_game():
         for ship in range(ships):
             ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
             while board[ship_row][ship_col] == '*':
-                ship_row, ship_col = randint(0, int(num-1)),
-                randint(0, int(num-1))
+                ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
             board[ship_row][ship_col] = '*'
 
     # Counts number of hits
