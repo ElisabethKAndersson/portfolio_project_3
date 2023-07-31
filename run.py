@@ -19,31 +19,35 @@ os.system('clear')
 def start_game():
    
     try:
-        num = int(input('How many rows/columns do you want on the board (4-8)?\n'))
+        num = int(input('Add number of rows/columns (4-8)?\n'))
         while num not in range(4, 9):
             print('That is not a valid number.')
-            num = int(input('How many rows/columns do you want on the board (4-8)?\n')) 
-        ships = int(input('Add number of ships to hit (3-6).')) 
-        while ships not in range(3,7):
+            num = int(input('Add number of rows/columns (4-8)?\n')) 
+
+        ships = int(input('Add number of ships to hit (3-6).\n')) 
+        while ships not in range(3, 7):
             print('That is not a valid number.')
-            ships = int(input('Add number of ships to hit (3-6).'))
+            ships = int(input('Add number of ships to hit (3-6).\n'))
+
+        turns = int(input('Add number of turns (10-20)'))
+        while turns not in range(10, 21):
+            print('That is not a valid number.')
+            turns = int(input('Add number of turns (10-20)'))
     except ValueError:
         print("Invalid input. Please enter a single digit.")
-        return(start_game())
-
-    
+        return start_game()
 
     # Function for guessing where on the board the hidden ships are
     def guess_ship_location():
         try:
-            row = int(input('Please enter a row number 0-' + str(num - 1)))
+            row = int(input('Enter a row number 0-' + str(num - 1) + '/n'))
             while row not in range(num):
                 print('That is not a valid row number')
-                row = int(input('Please enter a number 0-' + str(num - 1)))
-            column = int(input('Please enter a row number 0-' + str(num - 1)))
+                row = int(input('Enter a number 0-' + str(num - 1)))
+            column = int(input('Enter a row number 0-' + str(num - 1)))
             while column not in range(num):
                 print('That is not a valid column number')
-                column = int(input('Please enter a number 0-' + str(num - 1)))
+                column = int(input('Enter a number 0-' + str(num - 1)))
             return int(row), int(column)
         # If something that isn't an integer is inserted from the user.
         except ValueError:
@@ -86,8 +90,7 @@ def start_game():
     create_ships(Hidden_Pattern)
     # print(create_board(Hidden_Pattern))
 
-    turns = 18
-
+    
     # Text when starting the game.
     
     print("You have " + str(turns) + " missiles at your disposal.")
