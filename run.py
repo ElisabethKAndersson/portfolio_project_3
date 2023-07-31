@@ -8,7 +8,7 @@ import os
 
 print("WELCOME TO BATTLESHIP\n")
 name = input('What is your name?\n')
-print('\nThank God you are here Captain ' + name +'!')
+print('\nThank God you are here Captain ' + name + '!')
 print("\nAn enemy fleet is spotted on the horizon.")
 print("We have to sink all their ships before it's too late!\n")
 input('Press enter to start')
@@ -17,13 +17,16 @@ os.system('clear')
 
 # Function that runs the game from the beginning.
 def start_game():
-    ships = 5
-
+   
     try:
         num = int(input('How many rows/columns do you want on the board (4-8)?\n'))
         while num not in range(4, 9):
-            print('You have to write a number between 4-8')
-            num = int(input('How many rows/columns do you want on the board (4-8)?\n'))
+            print('That is not a valid number.')
+            num = int(input('How many rows/columns do you want on the board (4-8)?\n')) 
+        ships = int(input('Add number of ships to hit (3-6).')) 
+        while ships not in range(3,7):
+            print('That is not a valid number.')
+            ships = int(input('Add number of ships to hit (3-6).'))
     except ValueError:
         print("Invalid input. Please enter a single digit.")
         return(start_game())
@@ -87,9 +90,8 @@ def start_game():
 
     # Text when starting the game.
     
-    print("\nAn enemy fleet is spotted on the horizon.")
     print("You have " + str(turns) + " missiles at your disposal.")
-    
+    print('Where should we aim Captain ' + name + '?')
     time.sleep(2)
     
 
