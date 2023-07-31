@@ -11,14 +11,14 @@ num = 6
 # Function for guessing where on the board the hidden ships are
 def guess_ship_location():
     try:
-        row = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
+        row = int(input('Please enter a row number 0-' + str(num - 1)))
         while row not in range(num):
             print('That is not a valid row number')
-            row = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
-        column = int(input('Please enter a row number 0-' + str(num - 1) + ':'))
+            row = int(input('Please enter a number 0-' + str(num - 1))
+        column = int(input('Please enter a column number 0-' + str(num - 1)))
         while column not in range(num):
-            print('Please enter a column number 0-' + str(num - 1) + ':')
-            column = int(input('Please enter a column number 0-' + str(num - 1) + ':'))
+            print('That is not a valid column number')
+            column = int(input('Please enter a number 0-' + str(num - 1)))
         return int(row), int(column)
     # If something that isn't an integer is inserted from the user.
     except ValueError:
@@ -46,14 +46,13 @@ def count_hit_ships(board):
 
 # Function that runs the game
 def start_game():
- 
     # Hidden board for random ship placement.
     Hidden_Pattern = [['~'for x in range(num)] for y in range(num)]
     # Guess board that shows guessses.
     Guess_Pattern = [['~'for x in range(num)] for y in range(num)]
 
-
     # Creates a board grid layout with spaces in between.
+
     def create_board(board):
         space = ''
         for i in range(len(board)):
@@ -62,7 +61,7 @@ def start_game():
 
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
-    #print(create_board(Hidden_Pattern))
+    # print(create_board(Hidden_Pattern))
 
     turns = 18
 
@@ -74,8 +73,6 @@ def start_game():
     time.sleep(2)
     input("\nPress enter to start the game\n")
 
-
-    
     while turns > 0:
         # Print the board
         print("\nCan you guess where on the board the 4 hidden ships are?")
@@ -84,7 +81,8 @@ def start_game():
         # Enables the player make guesses.
         row, column = guess_ship_location()
         if Guess_Pattern[row][column] == 'o':
-            print('\nYou have already fired a shot there, try somewhere else\n')
+            print('\nYou have already fired a missile there\n')
+            print('Choose a different space')
             time.sleep(2)
         elif Hidden_Pattern[row][column] == '*':
             print('\nYAY! YOU HIT ONE SHIP!\n')
@@ -115,4 +113,3 @@ def start_game():
 
 
 start_game()
-
