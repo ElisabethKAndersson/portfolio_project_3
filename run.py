@@ -61,7 +61,8 @@ def start_game():
         for ship in range(ships):
             ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
             while board[ship_row][ship_col] == '*':
-                ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
+                ship_row = randint(0, int(num-1))
+                ship_col = randint(0, int(num-1))
             board[ship_row][ship_col] = '*'
 
     # Counts number of hits
@@ -88,7 +89,6 @@ def start_game():
 
     # Places the ships on the hidden board
     create_ships(Hidden_Pattern)
-    print(create_board(Hidden_Pattern))
     # Text when starting the game.
     print("You have " + str(turns) + " missiles at your disposal.")
     print('Where should we aim Captain ' + name + '?\n')
