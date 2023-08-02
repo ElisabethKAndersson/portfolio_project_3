@@ -13,8 +13,8 @@ print("WELCOME TO BATTLESHIP\n")
 
 def name_input():
     captain = input('What is your name?\n')
-    # Check if the player typed anything in the name input
-    if not captain:
+    # Check if the player typed anything in the name input.
+    if captain == "":
         print("Please enter your name.")
         return name_input()
     return captain
@@ -39,14 +39,11 @@ def start_game():
         try:
             num = int(input('Add number of rows/columns (5-8).\n'))
             # Validation that the player writes an integer in the right range.
-            if not num:
-                print("Please enter a digit between 5-8.\n")
-                return num_input()
-            elif num not in range(5, 9):
+            if num not in range(5, 9):
                 print("Please enter a digit between 5-8.\n")
                 return num_input()
         except ValueError:
-            print("Invalid input. Please enter a single digit.\n")
+            print("Please enter a single digit.\n")
             return num_input()
         return num
 
@@ -57,14 +54,11 @@ def start_game():
         try:
             ships = int(input('Add number of ships to hit (3-6).\n'))
             # Check if the player typed the right value.
-            if not ships:
-                print("Please enter a digit between 3-6.")
-                return ships_input()
-            elif ships not in range(3, 7):
+            if ships not in range(3, 7):
                 print("Please enter a digit between 3-6.\n")
                 return ships_input()
         except ValueError:
-            print("Invalid input. Please enter a single digit.\n")
+            print("Please enter a single digit.\n")
             return ships_input()
         return ships
 
@@ -75,10 +69,7 @@ def start_game():
         try:
             turns = int(input('Add number of turns (10-20).\n'))
             # Check if the player typed the right value.
-            if not turns:
-                print("Please enter a digit between 10-20.\n")
-                return turns_input()
-            elif turns not in range(10, 21):
+            if turns not in range(10, 21):
                 print("Please enter a digit between 10-20.\n")
                 return turns_input()
         except ValueError:
@@ -105,10 +96,10 @@ def start_game():
             return int(row), int(column)
         # If something that isn't an integer is inserted from the user.
         except ValueError:
-            print("Invalid input. Please enter a single digit.\n")
+            print("Please enter a single digit.\n")
             return guess_ship_location()
 
-    # Function that randomly places ships on a board
+    # Function that randomly places ships on a board.
     def create_ships(board):
         for ship in range(ships):
             ship_row, ship_col = randint(0, int(num-1)), randint(0, int(num-1))
