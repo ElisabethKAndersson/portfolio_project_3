@@ -10,6 +10,7 @@ import os
 # Welcome text that only appears first playthrough.
 print("WELCOME TO BATTLESHIP\n")
 
+
 # Function for the player to enter their name.
 def name_input():
     captain = input('What is your name?\n')
@@ -153,7 +154,7 @@ def start_game():
             print('\nYou have already fired a missile there.')
             print('Choose a different space\n')
             time.sleep(1)
-        # Checks Hidden pattern for ships (*). 
+        # Checks Hidden pattern for ships (*).
         # Prints message and adds * to Guess pattern if it is a hit.
         elif Hidden_Pattern[row][column] == '*':
             print('\nYAY! YOU HIT ONE SHIP!\n')
