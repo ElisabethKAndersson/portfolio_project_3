@@ -37,13 +37,13 @@ def start_game():
     # Function that lets the player decide number of rows/columns.
     def num_input():
         try:
-            num = int(input('Add number of rows/columns (4-8).\n'))
+            num = int(input('Add number of rows/columns (5-8).\n'))
             # Validation that the player writes an integer in the right range.
             if not num:
-                print("Please enter a digit between 4-8.\n")
+                print("Please enter a digit between 5-8.\n")
                 return num_input()
-            elif num not in range(4, 9):
-                print("Please enter a digit between 4-8.\n")
+            elif num not in range(5, 9):
+                print("Please enter a digit between 5-8.\n")
                 return num_input()
         except ValueError:
             print("Invalid input. Please enter a single digit.\n")
@@ -165,7 +165,7 @@ def start_game():
             Guess_Pattern[row][column] = 'o'
             turns -= 1
             time.sleep(2)
-        if count_hit_ships(Guess_Pattern) == 4:
+        if count_hit_ships(Guess_Pattern) == ships:
             print("\nCONGRATULATIONS! YOU MANAGED TO DEFEAT THE ENEMY.\n")
             break
         # Informs the player of number of turns left and hits made.
@@ -185,6 +185,8 @@ def start_game():
             print('\nThank you for playing.\n')
         else:
             return start_over_input()
+    
+    start_over_input()
         
 
 start_game()
