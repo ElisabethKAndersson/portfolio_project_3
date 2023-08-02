@@ -9,7 +9,20 @@ import os
 
 # Welcome text that only appears first playthrough.
 print("WELCOME TO BATTLESHIP\n")
-name = input('What is your name?\n')
+
+
+
+def name_input():
+    captain = input('What is your name?\n')
+    # Check if the player typed anything in the name input
+    if not captain:
+        print("Please enter your name.")
+        return name_input()
+    return captain
+  
+
+name = name_input()
+
 print('\nThank God you are here Captain ' + name + '!')
 print("\nAn enemy fleet is spotted on the horizon.")
 print("We have to sink all their ships before it's too late!\n")
