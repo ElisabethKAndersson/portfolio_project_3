@@ -31,6 +31,7 @@ input('Press enter to start')
 
 # Function that runs the game from the beginning.
 def start_game():
+    # Clears the board when starting.
     os.system('clear')
 
     # Function that lets the player decide number of rows/columns.
@@ -39,49 +40,49 @@ def start_game():
             num = int(input('Add number of rows/columns (4-8).\n'))
             # Validation that the player writes an integer in the right range.
             if not num:
-                print("Please enter a digit between 4-8.")
+                print("Please enter a digit between 4-8.\n")
                 return num_input()
             elif num not in range(4, 9):
-                print("Please enter a digit between 4-8.")
+                print("Please enter a digit between 4-8.\n")
                 return num_input()
         except ValueError:
-            print("Invalid input. Please enter a single digit.")
+            print("Invalid input. Please enter a single digit.\n")
             return num_input()
         return num
 
     num = num_input()
 
-
+    # Function that lets the player decide number of ships.
     def ships_input():
         try:
             ships = int(input('Add number of ships to hit (3-6).\n'))
-            # Check if the player typed anything in the num input
+            # Check if the player typed the right value.
             if not ships:
                 print("Please enter a digit between 3-6.")
                 return ships_input()
             elif ships not in range(3, 7):
-                print("Please enter a digit between 3-6.")
+                print("Please enter a digit between 3-6.\n")
                 return ships_input()
         except ValueError:
-            print("Invalid input. Please enter a single digit.")
+            print("Invalid input. Please enter a single digit.\n")
             return ships_input()
         return ships
 
     ships = ships_input()
 
-
+    # Function that lets the player decide number of turns / missiles.
     def turns_input():
         try:
             turns = int(input('Add number of turns (10-20).\n'))
-            # Check if the player typed anything in the num input
+            # Check if the player typed the right value.
             if not turns:
-                print("Please enter a digit between 10-20.")
+                print("Please enter a digit between 10-20.\n")
                 return turns_input()
             elif turns not in range(10, 21):
-                print("Please enter a digit between 10-20.")
+                print("Please enter a digit between 10-20.\n")
                 return turns_input()
         except ValueError:
-            print("Invalid input. Please enter digits.")
+            print("Invalid input. Please enter digits.\n")
             return turns_input()
         return turns
 
@@ -93,16 +94,16 @@ def start_game():
         try:
             row = int(input('Enter a row number 0-' + str(num - 1) + '\n'))
             while row not in range(num):
-                print('That is not a valid row number')
-                row = int(input('Enter a number 0-' + str(num - 1)))
+                print('That is not a valid row number\n')
+                row = int(input('Enter a number 0-' + str(num - 1) + '\n'))
             column = int(input('Enter a column number 0-' + str(num - 1) + '\n'))
             while column not in range(num):
-                print('That is not a valid column number')
+                print('That is not a valid column number\n')
                 column = int(input('Enter a number 0-' + str(num - 1) + '\n'))
             return int(row), int(column)
         # If something that isn't an integer is inserted from the user.
         except ValueError:
-            print("Invalid input. Please enter a single digit.")
+            print("Invalid input. Please enter a single digit.\n")
             return guess_ship_location()
 
     # Function that randomly places ships on a board
@@ -140,20 +141,20 @@ def start_game():
     create_ships(Hidden_Pattern)
     # Text when starting the game.
     print("You have " + str(turns) + " missiles at your disposal.")
-    print('Where should we aim Captain ' + name + '?\n')
-    time.sleep(2)
+    print('Where should we aim our next missile, Captain ' + name + '?\n')
+    time.sleep(1)
     while turns > 0:
         # Print the visable board that shows guesses.
         print('\nCan you guess where on the board')
-        print('the ' + str(ships) + ' hidden ships are?')
+        print('the ' + str(ships) + ' hidden ships are?\n')
         print(create_board(Guess_Pattern))
 
         # Enables the player make guesses.
         row, column = guess_ship_location()
         if Guess_Pattern[row][column] == 'o':
-            print('\nYou have already fired a missile there\n')
-            print('Choose a different space')
-            time.sleep(2)
+            print('\nYou have already fired a missile there.')
+            print('Choose a different space\n')
+            time.sleep(1)
         elif Hidden_Pattern[row][column] == '*':
             print('\nYAY! YOU HIT ONE SHIP!\n')
             Guess_Pattern[row][column] = '*'
@@ -169,18 +170,21 @@ def start_game():
             break
         # Informs the player of number of turns left and hits made.
         print('you have ' + str(count_hit_ships(Guess_Pattern)) + ' hits')
-        print('You have ' + str(turns) + ' turns remaining ')
-        time.sleep(2)
+        print('You have ' + str(turns) + ' turns remaining\n')
+        time.sleep(1)
         if turns == 0:
             print('\nGame Over\n')
             break
 
     # Gives option to start the game from the beginning.
-    start_over = input("\nDo you want to play again? Y / N\n")
-    if start_over == 'Y':
-        start_game()
-    else:
-        print('\nThank you for playing.\n')
-
+    def start_over_input():
+        start_over = input("\nDo you want to play again? Y / N\n")
+        if start_over == 'Y':
+            start_game()
+        elif start_over == 'N':
+            print('\nThank you for playing.\n')
+        else:
+            return start_over_input()
+        
 
 start_game()
