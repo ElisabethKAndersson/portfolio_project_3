@@ -88,6 +88,8 @@ def start_game():
 
     turns = turns_input()
 
+    os.system('clear')
+
     # Function for guessing where on the board the hidden ships are
     def guess_ship_location():
         print('Please enter a row number and a column number \n')
@@ -188,6 +190,6 @@ def start_game():
             return start_over_input()
 
     start_over_input()
-    
+
 
 start_game()
