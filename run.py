@@ -88,18 +88,18 @@ def start_game():
 
     turns = turns_input()
 
-
     # Function for guessing where on the board the hidden ships are
     def guess_ship_location():
+        print('Please enter a row number and a column number \n')
         try:
-            row = int(input('Enter a row number 0-' + str(num - 1) + '\n'))
+            row = int(input('Row number 0-' + str(num - 1) + '\n'))
             while row not in range(num):
                 print('That is not a valid row number\n')
-                row = int(input('Enter a number 0-' + str(num - 1) + '\n'))
-            column = int(input('Enter a column number 0-' + str(num - 1) + '\n'))
+                row = int(input('Row number 0-' + str(num - 1) + '\n'))
+            column = int(input('Column number 0-' + str(num - 1) + '\n'))
             while column not in range(num):
                 print('That is not a valid column number\n')
-                column = int(input('Enter a number 0-' + str(num - 1) + '\n'))
+                column = int(input('Column number 0-' + str(num - 1) + '\n'))
             return int(row), int(column)
         # If something that isn't an integer is inserted from the user.
         except ValueError:
@@ -186,8 +186,8 @@ def start_game():
         else:
             print('Write Y to play again, N to quit.')
             return start_over_input()
-    
+
     start_over_input()
-        
+    
 
 start_game()
