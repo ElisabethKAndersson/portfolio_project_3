@@ -184,6 +184,7 @@ def start_game():
         elif start_over == 'N':
             print('\nThank you for playing.\n')
         else:
+            print('Write Y to play again, N to quit.')
             return start_over_input()
     
     start_over_input()
