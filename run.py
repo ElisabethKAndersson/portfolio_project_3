@@ -11,7 +11,6 @@ import os
 print("WELCOME TO BATTLESHIP\n")
 
 
-
 def name_input():
     captain = input('What is your name?\n')
     # Check if the player typed anything in the name input
@@ -19,9 +18,10 @@ def name_input():
         print("Please enter your name.")
         return name_input()
     return captain
-  
+
 
 name = name_input()
+
 
 print('\nThank God you are here Captain ' + name + '!')
 print("\nAn enemy fleet is spotted on the horizon.")
@@ -32,25 +32,61 @@ input('Press enter to start')
 # Function that runs the game from the beginning.
 def start_game():
     os.system('clear')
-    try:
-        # Makes the player choose the size of the board.
-        num = int(input('Add number of rows/columns (4-8)?\n'))
-        while num not in range(4, 9):
-            print('That is not a valid number.')
-            num = int(input('Add number of rows/columns (4-8)?\n'))
-        # Makes the player choose number of ships to hit.
-        ships = int(input('Add number of ships to hit (3-6).\n'))
-        while ships not in range(3, 7):
-            print('That is not a valid number.')
+
+    # Function that lets the player decide number of rows/columns.
+    def num_input():
+        try:
+            num = int(input('Add number of rows/columns (4-8).\n'))
+            # Validation that the player writes an integer in the right range.
+            if not num:
+                print("Please enter a digit between 4-8.")
+                return num_input()
+            elif num not in range(4, 9):
+                print("Please enter a digit between 4-8.")
+                return num_input()
+        except ValueError:
+            print("Invalid input. Please enter a single digit.")
+            return num_input()
+        return num
+
+    num = num_input()
+
+
+    def ships_input():
+        try:
             ships = int(input('Add number of ships to hit (3-6).\n'))
-        # Makes the player choose number of turns.
-        turns = int(input('Add number of turns (10-20).\n'))
-        while turns not in range(10, 21):
-            print('That is not a valid number.')
+            # Check if the player typed anything in the num input
+            if not ships:
+                print("Please enter a digit between 3-6.")
+                return ships_input()
+            elif ships not in range(3, 7):
+                print("Please enter a digit between 3-6.")
+                return ships_input()
+        except ValueError:
+            print("Invalid input. Please enter a single digit.")
+            return ships_input()
+        return ships
+
+    ships = ships_input()
+
+
+    def turns_input():
+        try:
             turns = int(input('Add number of turns (10-20).\n'))
-    except ValueError:
-        print("Invalid input. Please enter a single digit.")
-        return start_game()
+            # Check if the player typed anything in the num input
+            if not turns:
+                print("Please enter a digit between 10-20.")
+                return turns_input()
+            elif turns not in range(10, 21):
+                print("Please enter a digit between 10-20.")
+                return turns_input()
+        except ValueError:
+            print("Invalid input. Please enter digits.")
+            return turns_input()
+        return turns
+
+    turns = turns_input()
+
 
     # Function for guessing where on the board the hidden ships are
     def guess_ship_location():
