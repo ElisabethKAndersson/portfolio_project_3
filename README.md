@@ -2,7 +2,7 @@
 
 
 
-This is a Battleship game for one player. This is a simplified version of the classic Battleship game. The player has to guess where on a board an number of ships are hidden before they run out of turns. If they hit all the ships they win the game.
+This is a Battleship game for one player. This is a simplified version of the classic Battleship game. The player has to guess where on a board a number of ships are hidden before they run out of turns. If they hit all the ships they win the game.
 
 ![battleship_responsive](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/72314d0b-c4f3-47c4-a88a-e577f5419aa0)
 
