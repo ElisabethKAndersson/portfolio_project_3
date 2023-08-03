@@ -70,6 +70,8 @@ Heroku - Has been used to launch the game.
 
 - I ran through the game with my mentor when I was quite far into development.
 
+- I have played the Heroku version of the game.
+
 
 ### Bugs
 
