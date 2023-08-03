@@ -22,8 +22,7 @@ ___
 ## Design
 
 The game design is very simple. It contains text and a board made from the sign ¨ to make it look like waves. Every hit is marked by the sign * and each miss is marked by the sign o.
-
-img
+In an attempt to make text and board less dense and easier to get an overview of I have added features the create small time delays. There is also a clear function when the different inputs have been made in the beginning of the game.
 
 
 ### Features
