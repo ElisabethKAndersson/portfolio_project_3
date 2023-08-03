@@ -29,6 +29,7 @@ img
 ### Features
 
 The starts off with an input feature for adding the player name. The player then gets a welcome message. This message only shows once. It doesn't show if the player wants to play again, since it can be annoying to go through a lot of text every time you want to play another round.
+![battle_name](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/447fc8ab-b7ae-45ed-b81f-98188709bd9b)
 
 The player then gets the option to set the size of the board, number of hidden ships on the board and number of turns.
 
