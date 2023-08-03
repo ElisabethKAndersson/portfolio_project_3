@@ -4,7 +4,8 @@
 
 This is a Battleship game for one player. This is a simplified version of the classic Battleship game. The player has to guess where on a board an number of ships are hidden before they run out of turns. If they hit all the ships they win the game.
 
-img
+![battleship_responsive](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/72314d0b-c4f3-47c4-a88a-e577f5419aa0)
+
 
 [VIsit the project page on Github here.](https://github.com/ElisabethKAndersson/portfolio_project_3.git) 
 
@@ -32,6 +33,8 @@ The starts off with an input feature for adding the player name. The player then
 The player then gets the option to set the size of the board, number of hidden ships on the board and number of turns.
 
 After that the layout is cleared and the game starts for real. The player is informed of how many ships they have to find and get a visual view of the board. They have to add rows and columns. They then get to see whether they hit or missed the board followed by information on how many hits they have so far, the number of turns left, and an updated version of the board with visual signs of hits and misses. The game then continues until they have either hit all hidden ships or used all their turns.
+![Battleship](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/b3edc1ca-a6d3-4748-96b1-78cb9e0dd32a)
+
 
 By the end of the game, the player gets the option to start over or quit. If they start over they begin with choosing the size of the board again.
 
@@ -121,7 +124,7 @@ https://bigmonty12.github.io/battleship - I used the board code from this page s
 ## Acknowledgments
 
  - Jubril Akolade, my Code Institute mentor
-    - Went through the project with me and found validation errors I had missed.
+    - Always giving good advice and went through the project with me and found validation errors I had missed.
 
  - Code institute tutor support  
     - I started off thinking a bit too big for a first python project. I got the advice that it is better to make something simpler that I understand. I changed my project and suddenly learned so much more than I had when feeling overwhelmed by the massive code I was working on.
