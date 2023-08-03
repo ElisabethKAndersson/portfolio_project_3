@@ -27,7 +27,7 @@ name = name_input()
 print('\nThank God you are here Captain ' + name + '!')
 print("\nAn enemy fleet is spotted on the horizon.")
 print("We have to sink all their ships before it's too late!\n")
-input('Press enter to start')
+input('Press enter to start\n')
 
 
 # Function that runs the game from the beginning.
