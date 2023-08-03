@@ -92,10 +92,16 @@ No remaining bugs have been detected.
 
 ---
 
-## Deployment & Local Development
-
-### Deployment
+## Deployment
 The project is deployed through Code institutes mock terminal on Heroku.
+
+### Steps for deployment:
+    - Create a new Heroku app on the Heroku page.
+    - Set buildbacks to Python and Node JS.
+    - Link the Heroku app to Github
+    - Find the Battleship repository
+    - Deploy the app.
+
 
 ---
 ## Credits
@@ -115,6 +121,7 @@ https://bigmonty12.github.io/battleship - I used the board code from this page s
 ## Acknowledgments
 
  - Jubril Akolade, my Code Institute mentor
+    - Went through the project with me and found validation errors I had missed.
 
  - Code institute tutor support  
-    - I started off thinking a bit too big for a first python project. I got the advice that it is better to make something simpler that I understand. I changed my project and suddenly learned so much more than I hade feeling overwhelmed by the massive code I was working on.
+    - I started off thinking a bit too big for a first python project. I got the advice that it is better to make something simpler that I understand. I changed my project and suddenly learned so much more than I had when feeling overwhelmed by the massive code I was working on.
