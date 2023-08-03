@@ -8,6 +8,8 @@ img
 
 [VIsit the project page on Github here.](https://github.com/ElisabethKAndersson/portfolio_project_3.git) 
 
+[VIsit the game page on Heroku here.](https://battleship-one-player-99f1f4a0fd93.herokuapp.com/) 
+
 
 ---
 ## User Experience
