@@ -21,18 +21,18 @@ The player can also change the size of the board, adjust the number of ships tha
 ___
 ## Design
 
-The game design is very simple. It contains text and a board made from the sign ¨ to make it look like waves. Every hit is marked by the sign * and each miss is marked by the sign o.
+The game design is very simple. It contains text and a board made from the sign ~ to make it look like waves. Every hit is marked by the sign * and each miss is marked by the sign o.
 In an attempt to make text and board less dense and easier to get an overview of I have added features the create small time delays. There is also a clear function when the different inputs have been made in the beginning of the game.
 
 
 ### Features
 
-The starts off with an input feature for adding the player name. The player then gets a welcome message. This message only shows once. It doesn't show if the player wants to play again, since it can be annoying to go through a lot of text every time you want to play another round.
+The game starts off with an input feature for adding the player name. The player then gets a welcome message. This message only shows once. It doesn't show if the player usese the play again option, since it can get annoying to go through a lot of text every time you want to play another round.
 ![battle_name](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/447fc8ab-b7ae-45ed-b81f-98188709bd9b)
 
 The player then gets the option to set the size of the board, number of hidden ships on the board and number of turns.
 
-After that the layout is cleared and the game starts for real. The player is informed of how many ships they have to find and get a visual view of the board. They have to add rows and columns. They then get to see whether they hit or missed the board followed by information on how many hits they have so far, the number of turns left, and an updated version of the board with visual signs of hits and misses. The game then continues until they have either hit all hidden ships or used all their turns.
+After that the layout is cleared and the game starts for real. The player is informed of how many ships they have to find. A visual view of the board is shown. The player has to make a guess of a row and column on the board. They then get to see whether they hit or missed a ship followed by information on how many hits they have so far, the number of turns left, and an updated version of the board with visual signs of hits and misses. The game then continues until they have either hit all hidden ships or used all their turns.
 ![Battleship](https://github.com/ElisabethKAndersson/portfolio_project_3/assets/131455964/b3edc1ca-a6d3-4748-96b1-78cb9e0dd32a)
 
 
@@ -66,7 +66,7 @@ Heroku - Has been used to launch the game.
 
 - I have played the game with different sizes, number of ships and number of turns.
 
-- I have tried all the input functions to check that there are error messages in case of invalid inputs.
+- I have tried all the input functions to check that there are suitable messages in case of invalid inputs.
 
 - I ran through the game with my mentor when I was quite far into development.
 
@@ -81,8 +81,8 @@ Heroku - Has been used to launch the game.
 - I had put input validation on a few places in case the player chose a number out of range, but I forgot to add validation in case the player pressed enter or wrote a letter instead of an integer.
     - I fixed that by adding an except ValueError.
 
-- I had a problem that the code wasn't validated again after the error message was placed, so the wrong value god be added.
-    - I instead divided some of the inputs into functions that could be called on after error message.
+- I had a problem with that the code not getting validated again after the error message was placed, so the wrong value could be inserted.
+    - I divided some of the inputs into functions that could be called on after error message.
 
 - In one run through I realized that I had more turns than there were possible ship locations.
     - I changed the minimum board size to number 5 instead of 4.
